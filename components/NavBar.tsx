@@ -10,28 +10,35 @@ export const NavBar = () => {
         <Link href="/">
           <a className={router.pathname === "/" ? "active" : ""}>Home</a>
         </Link>
-        <Link href="/about">
-          <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+        <Link href="/tv">
+          <a className={router.pathname === "/tv" ? "active" : ""}>TV Shows</a>
+        </Link>
+        <Link href="/actors">
+          <a className={router.pathname === "/actors" ? "active" : ""}>
+            Actors
+          </a>
         </Link>
       </div>
       <style jsx>{`
         nav {
           display: flex;
           gap: 10px;
-          flex-direction: column;
           align-items: center;
-          padding-top: 20px;
-          padding-bottom: 10px;
+          padding-top: 30px;
+          padding-bottom: 20px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         }
         img {
           max-width: 100px;
           margin-bottom: 5px;
+          margin-left: 50px;
+          margin-right: 100px;
         }
         nav a {
           font-weight: 600;
           font-size: 18px;
+          margin-left: 30px;
         }
         .active {
           color: tomato;
