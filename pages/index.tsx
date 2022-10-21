@@ -2,10 +2,21 @@ import Seo from "../components/Seo";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { QueryKey, restFetcher } from "../queryClient";
 import { GetMovies, Movie } from "../type";
 import MovieItem from "../components/MovieItem";
+
+const useFetchMoviesData = () => {
+  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery<GetMovies>(
+    [QueryKey.MOVIES],
+    ({ pageParam = 1 }) =>
+      restFetcher({
+        method: "GET",
+        path: "/api/movies",
+      })
+  );
+};
 
 const useGetMoviesData = () => {
   return useQuery<GetMovies, Error>(
@@ -37,20 +48,24 @@ export const Home = () => {
   if (!data) return <h4>No data found</h4>;
 
   return (
-    <div className="container">
+    <div className="container mx-auto px-4 pt-16">
       <Seo title="Home" />
-      {data.results?.map((movie: Movie) => (
-        <MovieItem key={movie.id} {...movie} />
-      ))}
-
-      <style jsx>{`
+      <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
+        Movies
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        {data.results?.map((movie: Movie) => (
+          <MovieItem key={movie.id} {...movie} />
+        ))}
+      </div>
+      {/* <style jsx>{`
         .container {
           display: grid;
           grid-template-columns: 1fr 1fr;
           padding: 20px;
           gap: 20px;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };
