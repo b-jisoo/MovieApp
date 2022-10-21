@@ -7,6 +7,7 @@ export interface Movie {
   title: string;
   vote_average: number;
   genre_ids: [number];
+  release_date: string;
 }
 
 export interface GetMovies {
@@ -16,7 +17,7 @@ export interface GetMovies {
   total_results: number;
 }
 
-export interface MonvieDetails {
+export interface MovieDetails {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: belongs_to_collection[];
@@ -44,6 +45,8 @@ export interface MonvieDetails {
   vote_count: number;
 }
 
+export type MovieDetailParams = [number, string] | [];
+
 interface Genres {
   id: number;
   name: string;
@@ -68,4 +71,38 @@ interface belongs_to_collection {
   name: string;
   poster_path: string;
   backdrop_path: string;
+}
+
+export interface CreditsData {
+  cast: Cast[];
+  crew: Crew[];
+}
+
+interface Crew {
+  adult: boolean;
+  credit_id: string;
+  department: string;
+  gender: number;
+  id: number;
+  job: string;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: null;
+}
+
+interface Cast {
+  adult: boolean;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  order: number;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
 }

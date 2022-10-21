@@ -1,14 +1,30 @@
 import { Query, useQuery } from "@tanstack/react-query";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
+import MovieCast from "../../components/movie/movieCast";
+import MovieImage from "../../components/movie/movieImage";
+import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { QueryKey, restFetcher } from "../../queryClient";
-import { MonvieDetails, Movie } from "../../type";
+import {
+  MovieDetails,
+  Movie,
+  MovieDetailParams,
+  CreditsData,
+} from "../../type";
 
-type MovieDetailParams = [string, number] | [];
+const useGetMoviesDeteliCreditsData = (id: number | undefined) => {
+  const { data, isLoading } = useQuery([QueryKey.MOVIESCAST, id], () =>
+    restFetcher({
+      method: "GET",
+      path: `/api/movies/${id}/credits`,
+    })
+  );
+  return data;
+};
 
 const useGetMoviesDeteliData = (id: number | undefined) => {
-  return useQuery<MonvieDetails>([QueryKey.MOVIES, id], () =>
+  return useQuery<MovieDetails>([QueryKey.MOVIES, id], () =>
     restFetcher({
       method: "GET",
       path: `/api/movies/${id}`,
@@ -20,38 +36,21 @@ export const Detail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const router = useRouter();
-  const [title, id] = (params || []) as MovieDetailParams;
+  const [id, title] = (params || []) as MovieDetailParams;
   const { data, isLoading } = useGetMoviesDeteliData(id);
+  const creditsData: CreditsData = useGetMoviesDeteliCreditsData(id);
+
   if (isLoading) return <h4>Loading...</h4>;
   if (!data) return <h4>No data found</h4>;
-
-  console.log("디테일 data입니다", data);
+  if (!creditsData) return <h4>No data found</h4>;
 
   return (
-    <div className="movie">
-      <Seo title={title} />
-      <img
-        src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
-        alt={title}
-      />
-      <h4>{title}</h4>
-      <style jsx>{`
-        /* .movie {
-          display: flex;
-          flex-direction: column;
-        } */
-        .movie img {
-          max-width: 80%;
-          border-radius: 12px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        }
-
-        .movie h4 {
-          font-size: 18px;
-          text-align: center;
-        }
-      `}</style>
-    </div>
+    <>
+      <Seo title={`${data.title}(${data.release_date.slice(0, 4)})`} />
+      <MovieiInfo data={data} creditsData={creditsData} />
+      <MovieCast {...creditsData} />
+      {/* <MovieImage /> */}
+    </>
   );
 };
 

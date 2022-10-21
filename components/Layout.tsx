@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 interface AppLayoutProps {
@@ -9,6 +10,7 @@ export const Layout = ({ children }: AppLayoutProps) => {
     <>
       <NavBar />
       <div>{children}</div>
+      <Footer />
     </>
   );
 };

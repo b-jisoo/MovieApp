@@ -58,14 +58,6 @@ export const Home = () => {
           <MovieItem key={movie.id} {...movie} />
         ))}
       </div>
-      {/* <style jsx>{`
-        .container {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          padding: 20px;
-          gap: 20px;
-        }
-      `}</style> */}
     </div>
   );
 };
