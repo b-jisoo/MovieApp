@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { QueryKey, restFetcher } from "../queryClient";
 import { GetMovies, Movie } from "../type";
-import MovieItem from "../components/MovieItem";
+import MovieItem from "../components/movie/MovieItem";
 
 const useFetchMoviesData = () => {
   const { data, fetchNextPage, hasNextPage } = useInfiniteQuery<GetMovies>(

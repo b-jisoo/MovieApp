@@ -2,7 +2,6 @@ import { Query, useQuery } from "@tanstack/react-query";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import MovieCast from "../../components/movie/movieCast";
-import MovieImage from "../../components/movie/movieImage";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { QueryKey, restFetcher } from "../../queryClient";
@@ -49,7 +48,6 @@ export const Detail = ({
       <Seo title={`${data.title}(${data.release_date.slice(0, 4)})`} />
       <MovieiInfo data={data} creditsData={creditsData} />
       <MovieCast {...creditsData} />
-      {/* <MovieImage /> */}
     </>
   );
 };

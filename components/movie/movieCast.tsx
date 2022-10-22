@@ -1,7 +1,12 @@
+import { SyntheticEvent } from "react";
 import { CreditsData } from "../../type";
 
 export const MovieCast = (creditsData: CreditsData) => {
   console.log("creditsDatacreditsDatacreditsData", creditsData);
+
+  const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = "/300x450.png";
+  };
   return (
     <div className="tv-cast  border-t border-gray-200">
       <div className="container mx-auto px-4 py-16">
@@ -14,6 +19,7 @@ export const MovieCast = (creditsData: CreditsData) => {
                   src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
                   alt={`${cast.cast_id}`}
                   className="hover:opacity-75 transition ease-in-out duration-150"
+                  onError={onErrorImg}
                 />
               </a>
               <div className="mt-2">

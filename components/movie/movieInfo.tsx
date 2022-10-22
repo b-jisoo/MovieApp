@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { CreditsData, MovieDetails } from "../../type";
+import PlayTrailer from "../PlayTrailer";
 
 export const MovieiInfo = ({
   data,
@@ -30,7 +31,7 @@ export const MovieiInfo = ({
               ></path>
             </g>
           </svg>
-          <span className="ml-1">{data.vote_average * 10}%</span>
+          <span className="ml-1">{(data.vote_average * 10).toFixed(2)}%</span>
           <span className="mx-2">|</span>
           <span>{data.release_date}</span>
           <span className="mx-2">|</span>
@@ -48,6 +49,7 @@ export const MovieiInfo = ({
             ))}
           </div>
         </div>
+        <PlayTrailer />
       </div>
 
       {/* <style jsx>{`
