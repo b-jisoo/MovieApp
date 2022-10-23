@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Movie } from "../../type";
+import { GetMovies, Movie } from "../../type";
 
 type Query = {
   id: number;
