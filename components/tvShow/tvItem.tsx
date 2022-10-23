@@ -1,25 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useRef } from "react";
-import { GetMovies, Movie } from "../../type";
+import { TvShow } from "../../type";
 import useLocalStorage from "use-local-storage";
 
-export const MovieItem = (movie: Movie) => {
+export const TvItem = (tvshow: TvShow) => {
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
-  const MOVIE_URL = `/movies/${movie.id}/${movie.title}`;
-  const [scrollY, setScrollY] = useLocalStorage("movie_list_scroll", 0);
+  const TVDETAIL_URL = `/tv/${tvshow.id}/${tvshow.name}`;
+  const [scrollY, setScrollY] = useLocalStorage("tv_list_scroll", 0);
 
   return (
     <>
       <div className="movie mt-8">
         <div className="cursor-pointer max-w-full h-auto box-border  hover:scale-105 hover:-translate-y-3 transition-all">
-          <Link href={MOVIE_URL}>
+          <Link href={TVDETAIL_URL}>
             <a onClick={() => setScrollY(window.scrollY)}>
               <Image
                 layout="responsive"
-                alt={movie.title}
-                src={`${BASE_URL}${movie.poster_path || movie.backdrop_path}`}
+                alt={tvshow.name}
+                src={`${BASE_URL}${tvshow.poster_path || tvshow.backdrop_path}`}
                 height={750}
                 width={500}
                 className="rounded-xl shadow-md"
@@ -28,12 +26,12 @@ export const MovieItem = (movie: Movie) => {
           </Link>
         </div>
         <div className="mt-2">
-          <Link href={MOVIE_URL}>
+          <Link href={TVDETAIL_URL}>
             <a
               className="text-lg mt-2 hover:text-gray-300"
               onClick={() => setScrollY(window.scrollY)}
             >
-              {movie.title}
+              {tvshow.name}
             </a>
           </Link>
           <div className="flex items-center text-gray-400 text-sm mt-1">
@@ -48,16 +46,16 @@ export const MovieItem = (movie: Movie) => {
                 ></path>
               </g>
             </svg>
-            <span className="ml-1">{movie.vote_average * 10}%</span>
+            <span className="ml-1">{tvshow.vote_average * 10}%</span>
             <span className="mx-2">|</span>
-            <span>{movie.release_date}</span>
+            <span>{tvshow.first_air_date}</span>
           </div>
         </div>
       </div>
       <style jsx>{`
-        .movie {
+        .tvshow {
         }
-        .movie img {
+        .tvshow img {
           max-width: 100%;
           border-radius: 12px;
           height: auto;
@@ -66,7 +64,7 @@ export const MovieItem = (movie: Movie) => {
           transition: transform 0.2s ease-in-out;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         }
-        .movie:hover img {
+        .tvshow:hover img {
           transform: scale(1.05) translateY(-10px);
         }
       `}</style>
@@ -74,4 +72,4 @@ export const MovieItem = (movie: Movie) => {
   );
 };
 
-export default MovieItem;
+export default TvItem;

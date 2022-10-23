@@ -5,12 +5,7 @@ import MovieCast from "../../components/movie/movieCast";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { QueryKey, restFetcher } from "../../queryClient";
-import {
-  MovieDetails,
-  Movie,
-  MovieDetailParams,
-  CreditsData,
-} from "../../type";
+import { MovieDetails, Movie, CreditsData, DetailParams } from "../../type";
 
 const useGetMoviesDeteliCreditsData = (id: number | undefined) => {
   const { data, isLoading } = useQuery([QueryKey.MOVIESCAST, id], () =>
@@ -31,11 +26,10 @@ const useGetMoviesDeteliData = (id: number | undefined) => {
   );
 };
 
-export const Detail = ({
+export const MovieDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
-  const router = useRouter();
-  const [id, title] = (params || []) as MovieDetailParams;
+  const [id, title] = (params || []) as DetailParams;
   const { data, isLoading } = useGetMoviesDeteliData(id);
   const creditsData: CreditsData = useGetMoviesDeteliCreditsData(id);
 
@@ -59,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default Detail;
+export default MovieDetail;
 
 /*
 adult: false

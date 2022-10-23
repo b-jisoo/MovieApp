@@ -1,9 +1,13 @@
 import Seo from "../components/Seo";
-import MovieList from "../components/movie/list";
+import MovieList from "../components/movie";
 import { useCallback, useEffect, useRef, useState } from "react";
 import useIntersection from "../components/hook/useIntersection";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useLocalStorage from "use-local-storage";
+import { GetMovies } from "../type";
+import { QueryKey } from "../queryClient";
+
+const MOVIES = "movies";
 
 export const Home = () => {
   const fetchMoreRef = useRef<HTMLDivElement>(null);
@@ -17,7 +21,7 @@ export const Home = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useFetchMoviesData();
+  } = useFetchMoviesData(QueryKey.MOVIES, MOVIES);
 
   useEffect(() => {
     if (!intersecting || !isSuccess || !hasNextPage || isFetchingNextPage)
