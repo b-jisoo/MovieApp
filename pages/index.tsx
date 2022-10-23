@@ -3,10 +3,12 @@ import MovieList from "../components/movie/list";
 import { useCallback, useEffect, useRef, useState } from "react";
 import useIntersection from "../components/hook/useIntersection";
 import useFetchMoviesData from "../components/hook/useFetchData";
+import useLocalStorage from "use-local-storage";
 
 export const Home = () => {
   const fetchMoreRef = useRef<HTMLDivElement>(null);
   const intersecting = useIntersection(fetchMoreRef);
+  const [scrollY] = useLocalStorage("movie_list_scroll", 0);
 
   const {
     data,
@@ -22,6 +24,10 @@ export const Home = () => {
       return;
     fetchNextPage();
   }, [intersecting]);
+
+  useEffect(() => {
+    if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
+  }, []);
 
   return (
     <div className="container mx-auto px-4 pt-16">

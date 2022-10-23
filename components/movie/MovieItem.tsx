@@ -1,6 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useRef } from "react";
 import { GetMovies, Movie } from "../../type";
+import useLocalStorage from "use-local-storage";
 
 type Query = {
   id: number;
@@ -8,21 +11,34 @@ type Query = {
 };
 
 export const MovieItem = (movie: Movie) => {
+  const BASE_URL = "https://image.tmdb.org/t/p/w500";
   const router = useRouter();
+  const [scrollY, setScrollY] = useLocalStorage("movie_list_scroll", 0);
+
   const onClick = ({ id, title }: Query) => {
+    setScrollY(window.scrollY);
     router.push(`/movies/${id}/${title}`);
   };
+
   return (
     <>
       <div className="movie mt-8">
-        <a
-          onClick={() => onClick({ id: movie.id, title: movie.title })}
-          key={movie.id}
-        >
-          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-        </a>
+        <div className="cursor-pointer max-w-full h-auto box-border  hover:scale-105 hover:-translate-y-3 transition-all">
+          <Image
+            layout="responsive"
+            alt={movie.title}
+            src={`${BASE_URL}${movie.poster_path || movie.backdrop_path}`}
+            height={750}
+            width={500}
+            className="rounded-xl shadow-md"
+            onClick={() => onClick({ id: movie.id, title: movie.title })}
+          />
+        </div>
         <div className="mt-2">
-          <Link href={`/movies/${movie.id}/${movie.title}`}>
+          <Link
+            href={`/movies/${movie.id}/${movie.title}`}
+            onClick={() => setScrollY(window.scrollY)}
+          >
             <a className="text-lg mt-2 hover:text-gray-300">{movie.title}</a>
           </Link>
           <div className="flex items-center text-gray-400 text-sm mt-1">
@@ -47,11 +63,11 @@ export const MovieItem = (movie: Movie) => {
         .movie {
         }
         .movie img {
-          cursor: pointer;
           max-width: 100%;
           border-radius: 12px;
           height: auto;
           box-sizing: border-box;
+
           transition: transform 0.2s ease-in-out;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         }
