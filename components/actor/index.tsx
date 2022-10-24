@@ -1,14 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SyntheticEvent } from "react";
-import { atctorDetails } from "../../type";
+import { atctor } from "../../type";
 import ActorItem from "./actorItem";
 
-export const ActorList = ({
-  list,
-}: {
-  list: { results: atctorDetails[] }[];
-}) => {
+export const ActorList = ({ list }: { list: { results: atctor[] }[] }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
       {list.map((page) =>

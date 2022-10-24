@@ -93,13 +93,29 @@ export interface TvDetails {
   vote_average: number;
   vote_count: number;
 }
-export interface atctorDetails {
+export interface atctor {
   adult: boolean;
   gender: number;
   id: number;
   known_for: known_for[];
   known_for_department: string;
   name: string;
+  popularity: number;
+  profile_path: string;
+}
+export interface atctorDetails {
+  adult: boolean;
+  also_known_as: string[];
+  biography: string;
+  birthday: string;
+  deathday: string;
+  gender: number;
+  homepage: string;
+  id: number;
+  imdb_id: string;
+  known_for_department: string;
+  name: string;
+  place_of_birth: string;
   popularity: number;
   profile_path: string;
 }
@@ -209,4 +225,50 @@ interface Cast {
   original_name: string;
   popularity: number;
   profile_path: string;
+}
+export interface actorCreditsData {
+  cast: actorCast[];
+  crew: actorCrew[];
+}
+
+interface actorCast {
+  adult: boolean;
+  backdrop_path: string;
+  character: string;
+  credit_id: string;
+  genre_ids: number[];
+  id: number;
+  media_type: string;
+  order: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: false;
+  vote_average: number;
+  vote_count: number;
+}
+
+interface actorCrew {
+  adult: boolean;
+  backdrop_path: string;
+  credit_id: string;
+  department: string;
+  genre_ids: [number];
+  id: number;
+  job: string;
+  media_type: string;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: false;
+  vote_average: number;
+  vote_count: number;
 }

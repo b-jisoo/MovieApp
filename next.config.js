@@ -47,6 +47,10 @@ const nextConfig = {
         source: "/api/person/:id",
         destination: `https://api.themoviedb.org/3/person/:id?api_key=${API_KEY}&language=ko-KR`,
       },
+      {
+        source: "/api/person/:id/movie_credits",
+        destination: `https://api.themoviedb.org/3/person/:id/movie_credits?api_key=${API_KEY}&language=ko-KR`,
+      },
     ];
   },
   images: {
