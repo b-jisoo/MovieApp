@@ -68,4 +68,5 @@ export const QueryKey = {
   MOVIESCAST: "MOVIESCAST",
   TVSHOW: "TVSHOW",
   TVCAST: "TVCAST",
+  ACTOR: "ACTOR",
 };

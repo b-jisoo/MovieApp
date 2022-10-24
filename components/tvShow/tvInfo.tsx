@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { CreditsData, MovieDetails, TvDetails } from "../../type";
 import PlayTrailer from "../PlayTrailer";
@@ -10,15 +11,19 @@ export const TviInfo = ({
   data: TvDetails;
   creditsData: CreditsData;
 }) => {
+  const BASE_URL = "https://image.tmdb.org/t/p/w500";
+
   console.log("디테일data입니다", data);
   console.log("creditsData니다", creditsData);
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
-      <div className="flex-none">
-        <img
-          className="w-64 lg:w-96"
-          src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
+      <div className="flex-none w-64 lg:w-96">
+        <Image
+          layout="responsive"
           alt={data.name}
+          src={`${BASE_URL}${data?.poster_path}`}
+          height={750}
+          width={500}
         />
       </div>
       <div className="md:ml-24">
