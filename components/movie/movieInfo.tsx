@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { CreditsData, MovieDetails } from "../../type";
-import PlayTrailer from "../PlayTrailer";
+import { Palyer } from "../detail/palyer";
+import PlayTrailer from "../detail/PlayTrailer";
 
 export const MovieiInfo = ({
   data,
@@ -12,6 +14,14 @@ export const MovieiInfo = ({
   creditsData: CreditsData;
 }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
+  const [modalSelected, setModalSelected] = useState(false);
+
+  const ModalHandler = () => {
+    setModalSelected(true);
+  };
+  const closeModalHandler = () => {
+    setModalSelected(false);
+  };
 
   console.log("디테일data입니다", data);
   return (
@@ -54,25 +64,11 @@ export const MovieiInfo = ({
             ))}
           </div>
         </div>
-        <PlayTrailer />
+        {modalSelected && <Palyer onClose={closeModalHandler} />}
+        <div onClick={ModalHandler}>
+          <PlayTrailer />
+        </div>
       </div>
-
-      {/* <style jsx>{`
-    .movie {
-      display: flex;
-      flex-direction: column;
-    }
-    .movie img {
-      max-width: 80%;
-      border-radius: 12px;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    }
-
-    .movie h4 {
-      font-size: 18px;
-      text-align: center;
-    }
-  `}</style> */}
     </div>
   );
 };

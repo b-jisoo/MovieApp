@@ -13,7 +13,7 @@ export const ActorCredit = (data: actorCreditsData) => {
               <strong>
                 <Link href={`../movies/${credits.id}`}>
                   <span className="hover:underline cursor-pointer">
-                    {credits.title || credits.original_title}
+                    {` ${credits.title || credits.original_title}`}
                   </span>
                 </Link>
               </strong>
