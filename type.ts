@@ -59,7 +59,7 @@ export interface MovieDetails {
   vote_average: number;
   vote_count: number;
 }
-export interface TvDetails {
+export interface get_TvDetails {
   adult: boolean;
   backdrop_path: string;
   created_by: created_by[];
@@ -193,9 +193,13 @@ interface created_by {
   profile_path: string;
 }
 
-export interface CreditsData {
+export interface get_Credits {
   cast: Cast[];
   crew: Crew[];
+}
+export interface get_video {
+  id: number;
+  results: video[];
 }
 export interface video {
   id: string;

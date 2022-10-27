@@ -1,8 +1,8 @@
 import { SyntheticEvent } from "react";
-import { CreditsData } from "../../type";
+import { get_Credits } from "../type";
 
-export const MovieCast = (creditsData: CreditsData) => {
-  console.log("creditsDatacreditsDatacreditsData", creditsData);
+export const InfoCast = (props: get_Credits) => {
+  console.log("propspropsprops", props);
 
   const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
     e.currentTarget.src = "/300x450.png";
@@ -12,7 +12,7 @@ export const MovieCast = (creditsData: CreditsData) => {
       <div className="container mx-auto px-4 py-16">
         <h2 className="text-4xl font-semibold">Cast</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-          {creditsData.cast.slice(0, 5).map((cast, index) => (
+          {props.cast.slice(0, 5).map((cast, index) => (
             <div className="mt-8" key={index}>
               <a href={`https://movies.andredemos.ca/actors/${cast.id}`}>
                 <img
@@ -39,4 +39,4 @@ export const MovieCast = (creditsData: CreditsData) => {
   );
 };
 
-export default MovieCast;
+export default InfoCast;

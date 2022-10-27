@@ -2,9 +2,9 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { ActorCredit } from "../../components/actor/actorCredits";
 import AcrtorInfo from "../../components/actor/actorInfo";
 import {
-  useGetActorCreditsData,
-  useGetActorDeteliData,
-} from "../../components/api/actor/getData";
+  useGetActorCredits,
+  useGetActorDeteli,
+} from "../../components/api/actor/getActorData";
 import Seo from "../../components/Seo";
 import { DetailParams, actorCreditsData } from "../../type";
 
@@ -12,8 +12,8 @@ export const ActorDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const [id, title] = (params || []) as DetailParams;
-  const { data, isLoading } = useGetActorDeteliData(id);
-  const detailData: actorCreditsData = useGetActorCreditsData(id);
+  const { data, isLoading } = useGetActorDeteli(id);
+  const detailData: actorCreditsData = useGetActorCredits(id);
 
   if (isLoading) return <h4>Loading...</h4>;
   if (!data) return <h4>No data found</h4>;

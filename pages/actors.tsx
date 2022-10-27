@@ -20,7 +20,7 @@ export const ActorsPage = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useFetchMoviesData(QueryKey.ACTOR, ACTOR_URL);
+  } = useFetchMoviesData(QueryKey.ACTOR_DETAIL, ACTOR_URL);
 
   useEffect(() => {
     if (!intersecting || !isSuccess || !hasNextPage || isFetchingNextPage)

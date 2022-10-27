@@ -2,13 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
-import { CreditsData, MovieDetails, video } from "../../type";
+import { get_Credits, MovieDetails, video } from "../../type";
 import { Palyer } from "../detail/palyer";
 import TrailerBtn from "../detail/trailerBtn";
 
 interface movieInfo {
   details: MovieDetails;
-  credits: CreditsData;
+  credits: get_Credits;
   video: video[];
 }
 
@@ -24,6 +24,7 @@ export const MovieiInfo = (props: movieInfo) => {
   };
 
   console.log("디테일data입니다", props);
+  console.log("video", props.video);
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
       <div className="flex-none w-64 lg:w-96">
@@ -68,7 +69,9 @@ export const MovieiInfo = (props: movieInfo) => {
             ))}
           </div>
         </div>
-        {modalSelected && <Palyer onClose={closeModalHandler} />}
+        {modalSelected && (
+          <Palyer onClose={closeModalHandler} video={props.video} />
+        )}
         <div>
           <div className="mt-12">
             {props.video.length === 0 ? (

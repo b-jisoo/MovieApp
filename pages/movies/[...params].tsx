@@ -3,29 +3,30 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import {
-  useGetMoviesCreditsData,
-  useGetMoviesDeteliData,
-  useGetMoviesVideoData,
-} from "../../components/api/movie/getData";
-import MovieCast from "../../components/movie/movieCast";
+  useGetMoviesCredits,
+  useGetMoviesDeteli,
+  useGetMoviesVideo,
+} from "../../components/api/movie/getMovieData";
+import InfoCast from "../../components/infoCast";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { QueryKey, restFetcher } from "../../queryClient";
 import {
   MovieDetails,
   Movie,
-  CreditsData,
+  get_Credits,
   DetailParams,
   video,
+  get_video,
 } from "../../type";
 
 export const MovieDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const [id, title] = (params || []) as DetailParams;
-  const { data, isLoading } = useGetMoviesDeteliData(id);
-  const creditsData: CreditsData = useGetMoviesCreditsData(id);
-  const videoData = useGetMoviesVideoData(id);
+  const { data, isLoading } = useGetMoviesDeteli(id);
+  const creditsData: get_Credits = useGetMoviesCredits(id);
+  const videoData: get_video = useGetMoviesVideo(id);
 
   if (isLoading) return <h4>Loading...</h4>;
   if (!data || !creditsData || !videoData) return <h4>No data found</h4>;
@@ -36,9 +37,9 @@ export const MovieDetail = ({
       <MovieiInfo
         details={data}
         credits={creditsData}
-        video={videoData.data.results}
+        video={videoData.results}
       />
-      <MovieCast {...creditsData} />
+      <InfoCast {...creditsData} />
     </>
   );
 };

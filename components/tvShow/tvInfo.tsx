@@ -1,33 +1,45 @@
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
-import { CreditsData, MovieDetails, TvDetails } from "../../type";
+import { get_Credits, MovieDetails, get_TvDetails, video } from "../../type";
+import { Palyer } from "../detail/palyer";
 import TrailerBtn from "../detail/trailerBtn";
 
-export const TviInfo = ({
-  data,
-  creditsData,
-}: {
-  data: TvDetails;
-  creditsData: CreditsData;
-}) => {
-  const BASE_URL = "https://image.tmdb.org/t/p/w500";
+interface TviInfo {
+  detail: get_TvDetails;
+  credits: get_Credits;
+  video: video[];
+}
 
-  console.log("디테일data입니다", data);
-  console.log("creditsData니다", creditsData);
+export const TviInfo = (props: TviInfo) => {
+  const BASE_URL = "https://image.tmdb.org/t/p/w500";
+  const [modalSelected, setModalSelected] = useState(false);
+
+  const ModalHandler = () => {
+    setModalSelected(true);
+  };
+  const closeModalHandler = () => {
+    setModalSelected(false);
+  };
+
+  console.log("디테일data입니다", props.detail);
+  console.log("creditsData니다", props.credits);
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
       <div className="flex-none w-64 lg:w-96">
         <Image
           layout="responsive"
-          alt={data.name}
-          src={`${BASE_URL}${data?.poster_path}`}
+          alt={props.detail.name}
+          src={`${BASE_URL}${props.detail?.poster_path}`}
           height={750}
           width={500}
         />
       </div>
       <div className="md:ml-24">
-        <h2 className="text-4xl mt-4 md:mt-0 font-semibold">{data.name}</h2>
+        <h2 className="text-4xl mt-4 md:mt-0 font-semibold">
+          {props.detail.name}
+        </h2>
         <div className="flex flex-wrap items-center text-gray-400 text-sm mt-2">
           <svg className="fill-current text-orange-500 w-4" viewBox="0 0 24 24">
             <g data-name="Layer 2">
@@ -37,17 +49,19 @@ export const TviInfo = ({
               ></path>
             </g>
           </svg>
-          <span className="ml-1">{(data.vote_average * 10).toFixed(2)}%</span>
+          <span className="ml-1">
+            {(props.detail.vote_average * 10).toFixed(2)}%
+          </span>
           <span className="mx-2">|</span>
-          <span>{data.first_air_date}</span>
+          <span>{props.detail.first_air_date}</span>
           <span className="mx-2">|</span>
-          <span>{data.genres.map((genre) => `${genre.name} `)}</span>
+          <span>{props.detail.genres.map((genre) => `${genre.name} `)}</span>
         </div>
-        <p className=" mt-8">{data.overview}</p>
+        <p className=" mt-8">{props.detail.overview}</p>
         <div className="mt-12">
           <h4 className=" font-semibold">Featured Crew</h4>
           <div className="flex mt-4">
-            {creditsData.crew.slice(0, 2).map((Crew, index) => (
+            {props.credits.crew.slice(0, 2).map((Crew, index) => (
               <div className="mr-8" key={index}>
                 <div>{Crew.name}</div>
                 <div className="text-sm text-gray-400">{Crew.job}</div>
@@ -55,7 +69,20 @@ export const TviInfo = ({
             ))}
           </div>
         </div>
-        <TrailerBtn />
+        {modalSelected && (
+          <Palyer onClose={closeModalHandler} video={props.video} />
+        )}
+        <div className="mt-12">
+          {props.video.length === 0 ? (
+            <TrailerBtn label="Trailer unavailable" disabled={true} />
+          ) : (
+            <TrailerBtn
+              label="Play Trailer"
+              disabled={false}
+              onClick={ModalHandler}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ export const Home = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useFetchMoviesData(QueryKey.MOVIES, MOVIES);
+  } = useFetchMoviesData(QueryKey.MOVIES_DETAIL, MOVIES);
 
   useEffect(() => {
     if (!intersecting || !isSuccess || !hasNextPage || isFetchingNextPage)

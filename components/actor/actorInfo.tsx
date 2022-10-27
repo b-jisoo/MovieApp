@@ -5,7 +5,7 @@ import { QueryKey, restFetcher } from "../../queryClient";
 import {
   actorCreditsData,
   atctorDetails,
-  CreditsData,
+  get_Credits,
   MovieDetails,
 } from "../../type";
 
