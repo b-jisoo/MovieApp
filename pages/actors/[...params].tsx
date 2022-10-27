@@ -1,46 +1,19 @@
-import { Query, useQuery } from "@tanstack/react-query";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useRouter } from "next/router";
 import { ActorCredit } from "../../components/actor/actorCredits";
 import AcrtorInfo from "../../components/actor/actorInfo";
-import MovieCast from "../../components/movie/movieCast";
-import MovieiInfo from "../../components/movie/movieInfo";
-import Seo from "../../components/Seo";
-import { QueryKey, restFetcher } from "../../queryClient";
 import {
-  MovieDetails,
-  Movie,
-  CreditsData,
-  DetailParams,
-  atctorDetails,
-  actorCreditsData,
-} from "../../type";
-
-const useGetActorDeteliCreditsData = (id: number | undefined) => {
-  const { data } = useQuery([QueryKey.ACTOR_CAST, id], () =>
-    restFetcher({
-      method: "GET",
-      path: `/api/person/${id}/movie_credits`,
-    })
-  );
-  return data;
-};
-
-const useGetActorData = (id: number | undefined) => {
-  return useQuery<atctorDetails>([QueryKey.ACTOR, id], () =>
-    restFetcher({
-      method: "GET",
-      path: `/api/person/${id}`,
-    })
-  );
-};
+  useGetActorCreditsData,
+  useGetActorDeteliData,
+} from "../../components/api/actor/getData";
+import Seo from "../../components/Seo";
+import { DetailParams, actorCreditsData } from "../../type";
 
 export const ActorDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const [id, title] = (params || []) as DetailParams;
-  const { data, isLoading } = useGetActorData(id);
-  const detailData: actorCreditsData = useGetActorDeteliCreditsData(id);
+  const { data, isLoading } = useGetActorDeteliData(id);
+  const detailData: actorCreditsData = useGetActorCreditsData(id);
 
   if (isLoading) return <h4>Loading...</h4>;
   if (!data) return <h4>No data found</h4>;

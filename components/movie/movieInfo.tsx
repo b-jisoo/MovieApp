@@ -2,17 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
-import { CreditsData, MovieDetails } from "../../type";
+import { CreditsData, MovieDetails, video } from "../../type";
 import { Palyer } from "../detail/palyer";
-import PlayTrailer from "../detail/PlayTrailer";
+import TrailerBtn from "../detail/trailerBtn";
 
-export const MovieiInfo = ({
-  data,
-  creditsData,
-}: {
-  data: MovieDetails;
-  creditsData: CreditsData;
-}) => {
+interface movieInfo {
+  details: MovieDetails;
+  credits: CreditsData;
+  video: video[];
+}
+
+export const MovieiInfo = (props: movieInfo) => {
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
   const [modalSelected, setModalSelected] = useState(false);
 
@@ -23,20 +23,22 @@ export const MovieiInfo = ({
     setModalSelected(false);
   };
 
-  console.log("디테일data입니다", data);
+  console.log("디테일data입니다", props);
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
       <div className="flex-none w-64 lg:w-96">
         <Image
           layout="responsive"
-          alt={data.title}
-          src={`${BASE_URL}${data?.poster_path}`}
+          alt={props.details.title}
+          src={`${BASE_URL}${props.details?.poster_path}`}
           height={750}
           width={500}
         />
       </div>
       <div className="md:ml-24">
-        <h2 className="text-4xl mt-4 md:mt-0 font-semibold">{data.title}</h2>
+        <h2 className="text-4xl mt-4 md:mt-0 font-semibold">
+          {props.details.title}
+        </h2>
         <div className="flex flex-wrap items-center text-gray-400 text-sm mt-2">
           <svg className="fill-current text-orange-500 w-4" viewBox="0 0 24 24">
             <g data-name="Layer 2">
@@ -46,17 +48,19 @@ export const MovieiInfo = ({
               ></path>
             </g>
           </svg>
-          <span className="ml-1">{(data.vote_average * 10).toFixed(2)}%</span>
+          <span className="ml-1">
+            {(props.details.vote_average * 10).toFixed(2)}%
+          </span>
           <span className="mx-2">|</span>
-          <span>{data.release_date}</span>
+          <span>{props.details.release_date}</span>
           <span className="mx-2">|</span>
-          <span>{data.genres.map((genre) => `${genre.name} `)}</span>
+          <span>{props.details.genres.map((genre) => `${genre.name} `)}</span>
         </div>
-        <p className=" mt-8">{data.overview}</p>
+        <p className=" mt-8">{props.details.overview}</p>
         <div className="mt-12">
           <h4 className=" font-semibold">Featured Crew</h4>
           <div className="flex mt-4">
-            {creditsData.crew.slice(0, 2).map((Crew, index) => (
+            {props.credits.crew.slice(0, 2).map((Crew, index) => (
               <div className="mr-8" key={index}>
                 <div>{Crew.name}</div>
                 <div className="text-sm text-gray-400">{Crew.job}</div>
@@ -65,8 +69,18 @@ export const MovieiInfo = ({
           </div>
         </div>
         {modalSelected && <Palyer onClose={closeModalHandler} />}
-        <div onClick={ModalHandler}>
-          <PlayTrailer />
+        <div>
+          <div className="mt-12">
+            {props.video.length === 0 ? (
+              <TrailerBtn label="Trailer unavailable" disabled={true} />
+            ) : (
+              <TrailerBtn
+                label="Play Trailer"
+                disabled={false}
+                onClick={ModalHandler}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

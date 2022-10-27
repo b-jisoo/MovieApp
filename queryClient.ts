@@ -66,8 +66,10 @@ export const restFetcher = async ({
 export const QueryKey = {
   MOVIES: "MOVIES",
   MOVIESCAST: "MOVIESCAST",
+  MOVIES_VIDEO: "MOVIE_VIDEO",
   TVSHOW: "TVSHOW",
   TVCAST: "TVCAST",
+  TV_VIDEO: "TV_VIDEO",
   ACTOR: "ACTOR",
   ACTOR_CAST: "ACTOR_CAST",
 };

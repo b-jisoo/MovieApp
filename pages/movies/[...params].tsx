@@ -1,46 +1,43 @@
 import { Query, useQuery } from "@tanstack/react-query";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import {
+  useGetMoviesCreditsData,
+  useGetMoviesDeteliData,
+  useGetMoviesVideoData,
+} from "../../components/api/movie/getData";
 import MovieCast from "../../components/movie/movieCast";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { QueryKey, restFetcher } from "../../queryClient";
-import { MovieDetails, Movie, CreditsData, DetailParams } from "../../type";
-
-const useGetMoviesDeteliCreditsData = (id: number | undefined) => {
-  const { data, isLoading } = useQuery([QueryKey.MOVIESCAST, id], () =>
-    restFetcher({
-      method: "GET",
-      path: `/api/movies/${id}/credits`,
-    })
-  );
-  return data;
-};
-
-const useGetMoviesDeteliData = (id: number | undefined) => {
-  return useQuery<MovieDetails>([QueryKey.MOVIES, id], () =>
-    restFetcher({
-      method: "GET",
-      path: `/api/movies/${id}`,
-    })
-  );
-};
+import {
+  MovieDetails,
+  Movie,
+  CreditsData,
+  DetailParams,
+  video,
+} from "../../type";
 
 export const MovieDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const [id, title] = (params || []) as DetailParams;
   const { data, isLoading } = useGetMoviesDeteliData(id);
-  const creditsData: CreditsData = useGetMoviesDeteliCreditsData(id);
+  const creditsData: CreditsData = useGetMoviesCreditsData(id);
+  const videoData = useGetMoviesVideoData(id);
 
   if (isLoading) return <h4>Loading...</h4>;
-  if (!data) return <h4>No data found</h4>;
-  if (!creditsData) return <h4>No data found</h4>;
+  if (!data || !creditsData || !videoData) return <h4>No data found</h4>;
 
   return (
     <>
       <Seo title={`${data.title}(${data.release_date.slice(0, 4)})`} />
-      <MovieiInfo data={data} creditsData={creditsData} />
+      <MovieiInfo
+        details={data}
+        credits={creditsData}
+        video={videoData.data.results}
+      />
       <MovieCast {...creditsData} />
     </>
   );

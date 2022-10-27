@@ -24,6 +24,10 @@ const nextConfig = {
         destination: `https://api.themoviedb.org/3/movie/:id?api_key=${API_KEY}&language=ko-KR`,
       },
       {
+        source: "/api/movies/:id/videos",
+        destination: `https://api.themoviedb.org/3/movie/:id/videos?api_key=${API_KEY}&language=ko-KR`,
+      },
+      {
         source: "/api/movies/:id/credits",
         destination: `https://api.themoviedb.org/3/movie/:id/credits?api_key=${API_KEY}&language=ko-KR`,
       },
@@ -34,6 +38,10 @@ const nextConfig = {
       {
         source: "/api/tv/:id",
         destination: `https://api.themoviedb.org/3/tv/:id?api_key=${API_KEY}&language=ko-KR`,
+      },
+      {
+        source: "/api/tv/:id/videos",
+        destination: `https://api.themoviedb.org/3/tv/:id/videos?api_key=${API_KEY}&language=ko-KR`,
       },
       {
         source: "/api/tv/:id/credits",

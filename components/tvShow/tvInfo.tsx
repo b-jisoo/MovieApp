@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { CreditsData, MovieDetails, TvDetails } from "../../type";
-import PlayTrailer from "../detail/PlayTrailer";
+import TrailerBtn from "../detail/trailerBtn";
 
 export const TviInfo = ({
   data,
@@ -55,7 +55,7 @@ export const TviInfo = ({
             ))}
           </div>
         </div>
-        <PlayTrailer />
+        <TrailerBtn />
       </div>
     </div>
   );
