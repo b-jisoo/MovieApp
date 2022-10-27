@@ -5,6 +5,7 @@ import {
   useGetActorCredits,
   useGetActorDeteli,
 } from "../../components/api/actor/getActorData";
+
 import Seo from "../../components/Seo";
 import { DetailParams, actorCreditsData } from "../../type";
 

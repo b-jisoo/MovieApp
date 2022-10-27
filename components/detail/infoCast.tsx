@@ -1,5 +1,5 @@
 import { SyntheticEvent } from "react";
-import { get_Credits } from "../type";
+import { get_Credits } from "../../type";
 
 export const InfoCast = (props: get_Credits) => {
   console.log("propspropsprops", props);

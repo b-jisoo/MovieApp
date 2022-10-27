@@ -4,7 +4,8 @@ import {
   useGetTvDeteli,
   useGetTvVideo,
 } from "../../components/api/tv/getTvData";
-import InfoCast from "../../components/infoCast";
+
+import InfoCast from "../../components/detail/infoCast";
 import Seo from "../../components/Seo";
 import TviInfo from "../../components/tvShow/tvInfo";
 import { get_Credits, DetailParams, get_video } from "../../type";

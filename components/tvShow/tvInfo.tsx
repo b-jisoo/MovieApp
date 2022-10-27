@@ -4,7 +4,7 @@ import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { get_Credits, MovieDetails, get_TvDetails, video } from "../../type";
 import { Palyer } from "../detail/palyer";
-import TrailerBtn from "../detail/trailerBtn";
+import TrailerBtn from "../layout/trailerBtn";
 
 interface TviInfo {
   detail: get_TvDetails;
@@ -23,8 +23,6 @@ export const TviInfo = (props: TviInfo) => {
     setModalSelected(false);
   };
 
-  console.log("디테일data입니다", props.detail);
-  console.log("creditsData니다", props.credits);
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
       <div className="flex-none w-64 lg:w-96">

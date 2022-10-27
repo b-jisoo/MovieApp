@@ -6,6 +6,7 @@ import useFetchMoviesData from "../components/hook/useFetchData";
 import useLocalStorage from "use-local-storage";
 import { GetMovies } from "../type";
 import { QueryKey } from "../queryClient";
+import { SplashScreen } from "../components/layout/splashScreen";
 
 const MOVIES = "movies";
 
@@ -36,7 +37,7 @@ export const Home = () => {
   return (
     <div className="container mx-auto px-4 pt-16">
       <Seo title="Home" />
-      {status === "loading" && <p>불러오는 중</p>}
+      {status === "loading" && <SplashScreen />}
       <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
         Popular Movies
       </h2>

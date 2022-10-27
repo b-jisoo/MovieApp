@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import useLocalStorage from "use-local-storage";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useIntersection from "../components/hook/useIntersection";
+import { SplashScreen } from "../components/layout/splashScreen";
 import Seo from "../components/Seo";
 import TvList from "../components/tvShow";
 import { QueryKey } from "../queryClient";
@@ -35,7 +36,8 @@ export const TvPage = () => {
   return (
     <div className="container mx-auto px-4 pt-16">
       <Seo title="TV show" />
-      {status === "loading" && <p>불러오는 중</p>}
+      {status === "loading" && <SplashScreen />}
+
       <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
         Popular Shows
       </h2>

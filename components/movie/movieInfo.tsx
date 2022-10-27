@@ -4,7 +4,7 @@ import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { get_Credits, MovieDetails, video } from "../../type";
 import { Palyer } from "../detail/palyer";
-import TrailerBtn from "../detail/trailerBtn";
+import TrailerBtn from "../layout/trailerBtn";
 
 interface movieInfo {
   details: MovieDetails;
@@ -23,8 +23,6 @@ export const MovieiInfo = (props: movieInfo) => {
     setModalSelected(false);
   };
 
-  console.log("디테일data입니다", props);
-  console.log("video", props.video);
   return (
     <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
       <div className="flex-none w-64 lg:w-96">

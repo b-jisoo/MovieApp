@@ -7,7 +7,8 @@ import {
   useGetMoviesDeteli,
   useGetMoviesVideo,
 } from "../../components/api/movie/getMovieData";
-import InfoCast from "../../components/infoCast";
+
+import InfoCast from "../../components/detail/infoCast";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { QueryKey, restFetcher } from "../../queryClient";
