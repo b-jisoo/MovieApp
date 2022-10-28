@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import useIntersection from "../components/hook/useIntersection";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useLocalStorage from "use-local-storage";
-import { GetMovies } from "../type";
 import { QueryKey } from "../queryClient";
 import { SplashScreen } from "../components/layout/splashScreen";
 
@@ -31,6 +30,8 @@ export const Home = () => {
   }, [intersecting]);
 
   useEffect(() => {
+    localStorage.setItem("actor_list_scroll", "0");
+    localStorage.setItem("tv_list_scroll", "0");
     if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
   }, []);
 

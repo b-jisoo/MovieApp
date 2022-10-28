@@ -30,6 +30,8 @@ export const TvPage = () => {
   }, [intersecting]);
 
   useEffect(() => {
+    localStorage.setItem("movie_list_scroll", "0");
+    localStorage.setItem("actor_list_scroll", "0");
     if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
   }, []);
 

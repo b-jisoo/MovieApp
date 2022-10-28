@@ -30,6 +30,8 @@ export const ActorsPage = () => {
   }, [intersecting]);
 
   useEffect(() => {
+    localStorage.setItem("movie_list_scroll", "0");
+    localStorage.setItem("tv_list_scroll", "0");
     if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
   }, []);
   console.log("사람data", data);
