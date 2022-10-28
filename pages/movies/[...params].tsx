@@ -6,7 +6,7 @@ import {
   useGetMoviesCredits,
   useGetMoviesDeteli,
   useGetMoviesVideo,
-} from "../../components/api/movie/getMovieData";
+} from "../../components/api/movie/getMovies";
 
 import InfoCast from "../../components/detail/infoCast";
 import MovieiInfo from "../../components/movie/movieInfo";

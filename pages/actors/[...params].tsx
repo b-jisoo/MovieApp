@@ -4,7 +4,7 @@ import AcrtorInfo from "../../components/actor/actorInfo";
 import {
   useGetActorCredits,
   useGetActorDeteli,
-} from "../../components/api/actor/getActorData";
+} from "../../components/api/actor/getActors";
 
 import Seo from "../../components/Seo";
 import { DetailParams, actorCreditsData } from "../../type";
@@ -17,10 +17,7 @@ export const ActorDetail = ({
   const detailData: actorCreditsData = useGetActorCredits(id);
 
   if (isLoading) return <h4>Loading...</h4>;
-  if (!data) return <h4>No data found</h4>;
-  if (!detailData) return <h4>No data found</h4>;
-  console.log("사람data", data);
-  console.log("detailData", detailData);
+  if (!data || !detailData) return <h4>No data found</h4>;
 
   return (
     <>

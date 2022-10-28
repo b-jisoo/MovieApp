@@ -3,7 +3,7 @@ import {
   useGetTvCredits,
   useGetTvDeteli,
   useGetTvVideo,
-} from "../../components/api/tv/getTvData";
+} from "../../components/api/tv/getTv";
 
 import InfoCast from "../../components/detail/infoCast";
 import Seo from "../../components/Seo";
