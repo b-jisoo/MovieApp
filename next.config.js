@@ -5,6 +5,9 @@ const API_KEY = process.env.API_KEY;
 const nextConfig = {
   trailingSlash: true,
   swcMinify: true,
+  images: {
+    unoptimized: true,
+  },
   async redirects() {
     return [
       {
