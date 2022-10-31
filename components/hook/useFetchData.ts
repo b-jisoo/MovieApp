@@ -5,7 +5,7 @@ import { GetMovies } from "../../type";
 export const useFetchMoviesData = (QueryKey: string, data: string) => {
   return useInfiniteQuery(
     [`${QueryKey}`], // 매개변수로
-    ({ pageParam = "" }) =>
+    ({ pageParam = 1 }) =>
       restFetcher({
         method: "GET",
         path: `/api/${data}`, // 매개변수로
