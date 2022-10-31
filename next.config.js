@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 
 const API_KEY = process.env.API_KEY;
+const debug = process.env.NODE_ENV !== "production";
+const repository = "MovieApp";
 
 const nextConfig = {
+  assetPrefix: !debug ? `/${repository}/` : "",
+  trailingSlash: true,
   swcMinify: true,
   async redirects() {
     return [

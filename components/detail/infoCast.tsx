@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SyntheticEvent } from "react";
 import { get_Credits } from "../../type";
 
@@ -5,7 +6,7 @@ export const InfoCast = (props: get_Credits) => {
   console.log("propspropsprops", props);
 
   const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = "/300x450.png";
+    e.currentTarget.src = process.env.BACKEND_URL + "/300x450.png";
   };
   return (
     <div className="tv-cast  border-t border-gray-200">
@@ -14,14 +15,16 @@ export const InfoCast = (props: get_Credits) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {props.cast.slice(0, 5).map((cast, index) => (
             <div className="mt-8" key={index}>
-              <a href={`https://movies.andredemos.ca/actors/${cast.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
-                  alt={`${cast.cast_id}`}
-                  className="hover:opacity-75 transition ease-in-out duration-150"
-                  onError={onErrorImg}
-                />
-              </a>
+              <Link href={`../actors/${cast.id}/${cast.name}`}>
+                <a>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
+                    alt={`${cast.cast_id}`}
+                    className="hover:opacity-75 transition ease-in-out duration-150"
+                    onError={onErrorImg}
+                  />
+                </a>
+              </Link>
               <div className="mt-2">
                 <a
                   href={`https://movies.andredemos.ca/actors/${cast.id}`}

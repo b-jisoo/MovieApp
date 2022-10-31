@@ -19,7 +19,7 @@ export const ActorItem = (actor: atctor) => {
               src={
                 actor.profile_path
                   ? `${BASE_URL}${actor.profile_path}`
-                  : "/300x450.png"
+                  : process.env.BACKEND_URL + "/300x450.png"
               }
               alt={actor.name}
               height={235}
