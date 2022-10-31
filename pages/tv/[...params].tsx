@@ -13,7 +13,7 @@ import { get_Credits, DetailParams } from "../../type";
 export const TVDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
-  const [id] = (params || []) as DetailParams;
+  const [id, title] = (params || []) as DetailParams;
   const { data, isLoading } = useGetTvDeteli(id);
   const creditsData: get_Credits = useGetTvCredits(id);
   const videoData = useGetTvVideo(id);
