@@ -9,7 +9,7 @@ interface AutoComplete {
 export const AutoComplete = (props: AutoComplete) => {
   if (!props.movie) return null;
   const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = process.env.BACKEND_URL + "/300x450.png";
+    e.currentTarget.src = "/300x450.png";
   };
   return (
     <ul>
