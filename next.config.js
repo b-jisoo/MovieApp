@@ -8,6 +8,9 @@ const nextConfig = {
   assetPrefix: !debug ? `/${repository}/` : "",
   trailingSlash: true,
   swcMinify: true,
+  images: {
+    unoptimized: true,
+  },
   async redirects() {
     return [
       {
