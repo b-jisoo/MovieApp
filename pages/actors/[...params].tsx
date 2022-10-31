@@ -5,6 +5,7 @@ import {
   useGetActorCredits,
   useGetActorDeteli,
 } from "../../components/api/actor/getActors";
+import { SplashScreen } from "../../components/layout/splashScreen";
 
 import Seo from "../../components/Seo";
 import { DetailParams, actorCreditsData } from "../../type";
@@ -16,7 +17,7 @@ export const ActorDetail = ({
   const { data, isLoading } = useGetActorDeteli(id);
   const detailData: actorCreditsData = useGetActorCredits(id);
 
-  if (isLoading) return <h4>Loading...</h4>;
+  if (isLoading) return <SplashScreen />;
   if (!data || !detailData) return <h4>No data found</h4>;
 
   return (
