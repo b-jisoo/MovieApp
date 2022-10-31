@@ -12,7 +12,7 @@ import { DetailParams, actorCreditsData } from "../../type";
 export const ActorDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
-  const [id, title] = (params || []) as DetailParams;
+  const [id] = (params || []) as DetailParams;
   const { data, isLoading } = useGetActorDeteli(id);
   const detailData: actorCreditsData = useGetActorCredits(id);
 

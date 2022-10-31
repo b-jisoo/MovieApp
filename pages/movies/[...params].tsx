@@ -1,7 +1,4 @@
-import { Query, useQuery } from "@tanstack/react-query";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import {
   useGetMoviesCredits,
   useGetMoviesDeteli,
@@ -11,20 +8,12 @@ import {
 import InfoCast from "../../components/detail/infoCast";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
-import { QueryKey, restFetcher } from "../../queryClient";
-import {
-  MovieDetails,
-  Movie,
-  get_Credits,
-  DetailParams,
-  video,
-  get_video,
-} from "../../type";
+import { get_Credits, DetailParams, get_video } from "../../type";
 
 export const MovieDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
-  const [id, title] = (params || []) as DetailParams;
+  const [id] = (params || []) as DetailParams;
   const { data, isLoading } = useGetMoviesDeteli(id);
   const creditsData: get_Credits = useGetMoviesCredits(id);
   const videoData: get_video = useGetMoviesVideo(id);
