@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = "f5aa9f927f791062392da80def9a5299";
 
 const nextConfig = {
   trailingSlash: true,
