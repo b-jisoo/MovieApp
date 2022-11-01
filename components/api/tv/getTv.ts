@@ -13,7 +13,6 @@ export const useGetTvCredits = (id: number | undefined) => {
 };
 
 export const useGetTvDeteli = (id: number | undefined) => {
-  console.log(id);
   return useQuery<get_TvDetails>([QueryKey.TV_CREDIT, id], () =>
     restFetcher({
       method: "GET",

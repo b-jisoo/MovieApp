@@ -19,7 +19,6 @@ export const TVDetail = ({
   const creditsData: get_Credits = useGetTvCredits(id);
   const videoData = useGetTvVideo(id);
 
-  console.log("videoData", videoData);
   if (isLoading) return <LoadingAnimation />;
   if (!data || !creditsData || !videoData) return <h4>No data found</h4>;
 

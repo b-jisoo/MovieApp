@@ -17,7 +17,6 @@ export const Search = () => {
         });
 
         setMovies(res.results);
-        console.log(inputRef.current?.focus);
       })();
     } else setMovies([]);
   }, [text]);

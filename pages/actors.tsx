@@ -34,7 +34,6 @@ export const ActorsPage = () => {
     localStorage.setItem("tv_list_scroll", "0");
     if (scrollY !== 0) window.scrollTo(0, Number(scrollY));
   }, []);
-  console.log("사람data", data);
 
   return (
     <div className="container mx-auto px-4 py-16">

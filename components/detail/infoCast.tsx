@@ -3,10 +3,8 @@ import { SyntheticEvent } from "react";
 import { get_Credits } from "../../type";
 
 export const InfoCast = (props: get_Credits) => {
-  console.log("propspropsprops", props);
-
   const onErrorImg = (e: SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = process.env.BACKEND_URL + "/300x450.png";
+    e.currentTarget.src = "/300x450.png";
   };
   return (
     <div className="tv-cast  border-t border-gray-200">

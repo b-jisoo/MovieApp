@@ -7,7 +7,6 @@ interface Iprops {
 }
 
 export const Palyer = (props: Iprops) => {
-  console.log(props.video);
   return (
     <Modal onClose={props.onClose}>
       <div className=" rounded w-full ">
