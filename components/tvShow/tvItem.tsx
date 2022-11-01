@@ -21,6 +21,8 @@ export const TvItem = (tvshow: TvShow) => {
                 height={750}
                 width={500}
                 className="rounded-xl shadow-md"
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />
             </a>
           </Link>

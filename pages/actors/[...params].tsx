@@ -17,8 +17,8 @@ export const ActorDetail = ({
   const { data, isLoading } = useGetActorDeteli(id);
   const detailData: actorCreditsData = useGetActorCredits(id);
 
-  if (isLoading) return <LoadingAnimation />;
-  if (!data || !detailData) return <h4>No data found</h4>;
+  // if (isLoading) return <LoadingAnimation />;
+  if (!data || !detailData || isLoading) return <LoadingAnimation />;
 
   return (
     <>

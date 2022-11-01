@@ -50,7 +50,7 @@
 
 - 작품의 제목으로 작품을 검색할 수 있음
 
-![블랙 위도우](https://user-images.githubusercontent.com/71222288/199270365-c8870d1c-81f8-4f1a-a5b0-081f26ca8aa7.gif)
+![블랙 위도우2](https://user-images.githubusercontent.com/71222288/199281243-906e35fa-304b-4082-a7b1-d2727daed99a.gif)
 
 ## 🗂 디렉토리 구조
 

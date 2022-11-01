@@ -1,27 +1,32 @@
 export const LoadingAnimation = () => {
   return (
     <>
-      <div className="SplashScreen">
-        <div className="loader">
-          <div className="dot"></div>
-        </div>
-        <div className="loader">
-          <div className="dot"></div>
-        </div>
-        <div className="loader">
-          <div className="dot"></div>
-        </div>
-        <div className="loader">
-          <div className="dot"></div>
-        </div>
-        <div className="loader">
-          <div className="dot"></div>
-        </div>
-        <div className="loader">
-          <div className="dot"></div>
+      <div className="animation-box">
+        <div className="SplashScreen">
+          <div className="loader">
+            <div className="dot"></div>
+          </div>
+          <div className="loader">
+            <div className="dot"></div>
+          </div>
+          <div className="loader">
+            <div className="dot"></div>
+          </div>
+          <div className="loader">
+            <div className="dot"></div>
+          </div>
+          <div className="loader">
+            <div className="dot"></div>
+          </div>
+          <div className="loader">
+            <div className="dot"></div>
+          </div>
         </div>
       </div>
       <style jsx>{`
+        .animation-box {
+          height: 800px;
+        }
         .SplashScreen {
           display: flex;
           width: 100%;

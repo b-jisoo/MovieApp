@@ -72,7 +72,7 @@ const nextConfig = {
     ];
   },
   images: {
-    unoptimized: true,
+    // unoptimized: true,
     domains: ["image.tmdb.org"],
   },
 };

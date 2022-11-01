@@ -19,8 +19,8 @@ export const TVDetail = ({
   const creditsData: get_Credits = useGetTvCredits(id);
   const videoData = useGetTvVideo(id);
 
-  if (isLoading) return <LoadingAnimation />;
-  if (!data || !creditsData || !videoData) return <h4>No data found</h4>;
+  if (!data || !creditsData || !videoData || isLoading)
+    return <LoadingAnimation />;
 
   return (
     <>

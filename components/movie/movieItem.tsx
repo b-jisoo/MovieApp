@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import { GetMovies, Movie } from "../../type";
 import useLocalStorage from "use-local-storage";
+import { Skeleton } from "../layout/skeleton";
 
 export const MovieItem = (movie: Movie) => {
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
@@ -23,6 +24,8 @@ export const MovieItem = (movie: Movie) => {
                 height={750}
                 width={500}
                 className="rounded-xl shadow-md"
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
               />
             </a>
           </Link>

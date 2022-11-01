@@ -4,6 +4,7 @@ import ActorList from "../components/actor";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useIntersection from "../components/hook/useIntersection";
 import { LoadingAnimation } from "../components/layout/loadingAnimation";
+import { Skeleton } from "../components/layout/skeleton";
 import Seo from "../components/Seo";
 import { QueryKey } from "../queryClient";
 
@@ -38,7 +39,7 @@ export const ActorsPage = () => {
   return (
     <div className="container mx-auto px-4 py-16">
       <Seo title="Actors" />
-      {status === "loading" && <LoadingAnimation />}
+      {status === "loading" && <Skeleton />}
 
       <div className="popular-actors">
         <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
@@ -47,7 +48,7 @@ export const ActorsPage = () => {
       </div>
       <ActorList list={data?.pages || []} />
       <div ref={fetchMoreRef} />
-      {isFetchingNextPage && <p>계속 불러오는 중</p>}
+      {isFetchingNextPage && <Skeleton />}
     </div>
   );
 };

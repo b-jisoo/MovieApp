@@ -24,6 +24,8 @@ export const ActorItem = (actor: atctor) => {
               alt={actor.name}
               height={235}
               width={235}
+              placeholder="blur"
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
             />
           </a>
         </Link>

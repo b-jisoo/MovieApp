@@ -3,6 +3,7 @@ import useLocalStorage from "use-local-storage";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useIntersection from "../components/hook/useIntersection";
 import { LoadingAnimation } from "../components/layout/loadingAnimation";
+import { Skeleton } from "../components/layout/skeleton";
 import Seo from "../components/Seo";
 import TvList from "../components/tvShow";
 import { QueryKey } from "../queryClient";
@@ -38,14 +39,14 @@ export const TvPage = () => {
   return (
     <div className="container mx-auto px-4 pt-16">
       <Seo title="TV show" />
-      {status === "loading" && <LoadingAnimation />}
+      {status === "loading" && <Skeleton />}
 
       <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
         Popular Shows
       </h2>
       <TvList list={data?.pages || []} />
       <div ref={fetchMoreRef} />
-      {isFetchingNextPage && <p>계속 불러오는 중</p>}
+      {isFetchingNextPage && <Skeleton />}
     </div>
   );
 };

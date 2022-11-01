@@ -6,6 +6,7 @@ import useFetchMoviesData from "../components/hook/useFetchData";
 import useLocalStorage from "use-local-storage";
 import { QueryKey } from "../queryClient";
 import { LoadingAnimation } from "../components/layout/loadingAnimation";
+import { Skeleton } from "../components/layout/skeleton";
 
 const MOVIES = "movies";
 
@@ -38,13 +39,14 @@ export const Home = () => {
   return (
     <div className="container mx-auto px-4 pt-16">
       <Seo title="Home" />
-      {status === "loading" && <LoadingAnimation />}
+      {status === "loading" && <Skeleton />}
+
       <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
         Popular Movies
       </h2>
       <MovieList list={data?.pages || []} />
       <div ref={fetchMoreRef} />
-      {isFetchingNextPage && <p>계속 불러오는 중</p>}
+      {isFetchingNextPage && <Skeleton />}
     </div>
   );
 };
