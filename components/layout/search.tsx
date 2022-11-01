@@ -19,7 +19,7 @@ export const Search = () => {
         setMovies(res.results);
       })();
     } else setMovies([]);
-  }, [text]);
+  }, [text, focuse]);
 
   const handleChangeText = (e: SyntheticEvent) => {
     setText((e.target as HTMLInputElement).value);
@@ -36,8 +36,8 @@ export const Search = () => {
             onChange={handleChangeText}
             ref={inputRef}
             onFocus={() => setFocuse(true)}
-            onBlur={() => setFocuse(false)}
-          />
+            // onBlur={() => setFocuse(false)}
+          ></input>
           <div className="absolute top-0">
             <svg
               className="fill-current w-4 text-gray-500 mt-2 ml-2"
@@ -51,7 +51,9 @@ export const Search = () => {
           </div>
 
           <div className="z-50 absolute bg-gray-100 text-sm rounded w-64 mt-4">
-            {movies && focuse && <AutoComplete movie={movies.slice(0, 5)} />}
+            {movies && (
+              <AutoComplete movie={movies.slice(0, 5)} setText={setText} />
+            )}
           </div>
         </div>
       </div>
