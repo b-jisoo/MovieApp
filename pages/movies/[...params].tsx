@@ -6,7 +6,7 @@ import {
 } from "../../components/api/movie/getMovies";
 
 import InfoCast from "../../components/detail/infoCast";
-import { SplashScreen } from "../../components/layout/splashScreen";
+import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { get_Credits, DetailParams, get_video } from "../../type";
@@ -19,7 +19,7 @@ export const MovieDetail = ({
   const creditsData: get_Credits = useGetMoviesCredits(id);
   const videoData: get_video = useGetMoviesVideo(id);
 
-  if (isLoading) return <SplashScreen />;
+  if (isLoading) return <LoadingAnimation />;
   if (!data || !creditsData || !videoData) return <h4>No data found</h4>;
 
   return (

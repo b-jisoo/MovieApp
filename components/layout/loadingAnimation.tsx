@@ -1,4 +1,4 @@
-export const SplashScreen = () => {
+export const LoadingAnimation = () => {
   return (
     <>
       <div className="SplashScreen">

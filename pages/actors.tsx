@@ -3,7 +3,7 @@ import useLocalStorage from "use-local-storage";
 import ActorList from "../components/actor";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useIntersection from "../components/hook/useIntersection";
-import { SplashScreen } from "../components/layout/splashScreen";
+import { LoadingAnimation } from "../components/layout/loadingAnimation";
 import Seo from "../components/Seo";
 import { QueryKey } from "../queryClient";
 
@@ -39,7 +39,7 @@ export const ActorsPage = () => {
   return (
     <div className="container mx-auto px-4 py-16">
       <Seo title="Actors" />
-      {status === "loading" && <SplashScreen />}
+      {status === "loading" && <LoadingAnimation />}
 
       <div className="popular-actors">
         <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">

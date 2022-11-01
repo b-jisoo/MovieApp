@@ -5,7 +5,7 @@ import useIntersection from "../components/hook/useIntersection";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useLocalStorage from "use-local-storage";
 import { QueryKey } from "../queryClient";
-import { SplashScreen } from "../components/layout/splashScreen";
+import { LoadingAnimation } from "../components/layout/loadingAnimation";
 
 const MOVIES = "movies";
 
@@ -38,7 +38,7 @@ export const Home = () => {
   return (
     <div className="container mx-auto px-4 pt-16">
       <Seo title="Home" />
-      {status === "loading" && <SplashScreen />}
+      {status === "loading" && <LoadingAnimation />}
       <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
         Popular Movies
       </h2>

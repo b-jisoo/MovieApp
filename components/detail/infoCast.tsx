@@ -26,12 +26,11 @@ export const InfoCast = (props: get_Credits) => {
                 </a>
               </Link>
               <div className="mt-2">
-                <a
-                  href={`https://movies.andredemos.ca/actors/${cast.id}`}
-                  className="text-lg mt-2 hover:text-gray:300"
-                >
-                  {cast.name}
-                </a>
+                <Link href={`../actors/${cast.id}/${cast.name}`}>
+                  <a className="text-lg mt-2 hover:text-gray:300">
+                    {cast.name}
+                  </a>
+                </Link>
                 <div className="text-sm text-gray-400">Ser Otto Hightower</div>
               </div>
             </div>

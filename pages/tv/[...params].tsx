@@ -6,7 +6,7 @@ import {
 } from "../../components/api/tv/getTv";
 
 import InfoCast from "../../components/detail/infoCast";
-import { SplashScreen } from "../../components/layout/splashScreen";
+import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import Seo from "../../components/Seo";
 import TviInfo from "../../components/tvShow/tvInfo";
 import { get_Credits, DetailParams } from "../../type";
@@ -20,7 +20,7 @@ export const TVDetail = ({
   const videoData = useGetTvVideo(id);
 
   console.log("videoData", videoData);
-  if (isLoading) return <SplashScreen />;
+  if (isLoading) return <LoadingAnimation />;
   if (!data || !creditsData || !videoData) return <h4>No data found</h4>;
 
   return (

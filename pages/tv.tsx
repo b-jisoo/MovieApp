@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import useLocalStorage from "use-local-storage";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useIntersection from "../components/hook/useIntersection";
-import { SplashScreen } from "../components/layout/splashScreen";
+import { LoadingAnimation } from "../components/layout/loadingAnimation";
 import Seo from "../components/Seo";
 import TvList from "../components/tvShow";
 import { QueryKey } from "../queryClient";
@@ -38,7 +38,7 @@ export const TvPage = () => {
   return (
     <div className="container mx-auto px-4 pt-16">
       <Seo title="TV show" />
-      {status === "loading" && <SplashScreen />}
+      {status === "loading" && <LoadingAnimation />}
 
       <h2 className="uppercase tracking-wider text-gray-500 text-lg font-semibold">
         Popular Shows
