@@ -28,6 +28,8 @@ export const AcrtorInfo = ({
           src={`${BASE_URL}${data?.profile_path}`}
           width={300}
           height={450}
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
         />
       </div>
       <div className="md:ml-24">
@@ -61,6 +63,8 @@ export const AcrtorInfo = ({
                       width={145}
                       height={218}
                       className="cursor-pointer hover:opacity-75 transition ease-in-out duration-150"
+                      placeholder="blur"
+                      blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
                     />
                   </Link>
                   <div className="cursor-pointer text-sm leading-normal block text-500 hover:text-gray-400 mt-1">
