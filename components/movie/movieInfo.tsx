@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { QueryKey, restFetcher } from "../../queryClient";
 import { get_Credits, MovieDetails, video } from "../../type";
-import { Palyer } from "../detail/palyer";
+import { Palyer } from "../detail/player";
 import TrailerBtn from "../layout/trailerBtn";
 
 interface movieInfo {
