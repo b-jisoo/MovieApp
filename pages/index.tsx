@@ -7,7 +7,7 @@ import useLocalStorage from "use-local-storage";
 import { QueryKey } from "../queryClient";
 import { LoadingAnimation } from "../components/layout/loadingAnimation";
 import { Skeleton } from "../components/layout/skeleton";
-import { NextSeo } from "next-seo";
+import { DefaultSeo } from "next-seo";
 
 const MOVIES = "movies";
 
@@ -39,7 +39,7 @@ export const Home = () => {
 
   return (
     <div className="container mx-auto px-4 pt-16">
-      <NextSeo
+      <DefaultSeo
         {...Seo({
           title: "Home",
           description: "인기있는 영화를 쉽게 찾아볼 수 있는 MovieApp!",

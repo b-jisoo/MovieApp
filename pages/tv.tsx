@@ -7,7 +7,7 @@ import { Skeleton } from "../components/layout/skeleton";
 import Seo from "../components/Seo";
 import TvList from "../components/tvShow";
 import { QueryKey } from "../queryClient";
-import { NextSeo } from "next-seo";
+import { DefaultSeo } from "next-seo";
 
 const TVSHOWS = "tv";
 
@@ -39,7 +39,7 @@ export const TvPage = () => {
 
   return (
     <div className="container mx-auto px-4 pt-16">
-      <NextSeo
+      <DefaultSeo
         {...Seo({
           title: "TV show",
           description: "인기있는 티비 프로그램을 쉽게 찾아볼 수 있는 MovieApp!",

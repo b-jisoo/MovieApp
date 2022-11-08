@@ -10,7 +10,7 @@ import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { get_Credits, DetailParams, get_video } from "../../type";
-import { NextSeo } from "next-seo";
+import { DefaultSeo } from "next-seo";
 
 export const MovieDetail = ({
   params,
@@ -25,7 +25,7 @@ export const MovieDetail = ({
 
   return (
     <>
-      <NextSeo
+      <DefaultSeo
         {...Seo({
           title: `${data.title}(${data.release_date.slice(0, 4)})`,
           description: data.overview,

@@ -10,7 +10,7 @@ import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import Seo from "../../components/Seo";
 import TviInfo from "../../components/tvShow/tvInfo";
 import { get_Credits, DetailParams } from "../../type";
-import { NextSeo } from "next-seo";
+import { DefaultSeo } from "next-seo";
 
 export const TVDetail = ({
   params,
@@ -26,7 +26,7 @@ export const TVDetail = ({
 
   return (
     <>
-      <NextSeo
+      <DefaultSeo
         {...Seo({
           title: `${data.name}(${data.first_air_date.slice(0, 4)})`,
           description: data.overview,
