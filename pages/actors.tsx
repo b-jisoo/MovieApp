@@ -7,6 +7,7 @@ import { LoadingAnimation } from "../components/layout/loadingAnimation";
 import { Skeleton } from "../components/layout/skeleton";
 import Seo from "../components/Seo";
 import { QueryKey } from "../queryClient";
+import { NextSeo } from "next-seo";
 
 const ACTOR_URL = "person";
 
@@ -38,7 +39,12 @@ export const ActorsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <Seo title="Actors" />
+      <NextSeo
+        {...Seo({
+          title: "Actors",
+          description: "인기있는 배우를 쉽게 찾아볼 수 있는 MovieApp!",
+        })}
+      />
       {status === "loading" && <Skeleton />}
 
       <div className="popular-actors">

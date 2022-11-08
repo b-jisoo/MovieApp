@@ -10,6 +10,7 @@ import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import Seo from "../../components/Seo";
 import TviInfo from "../../components/tvShow/tvInfo";
 import { get_Credits, DetailParams } from "../../type";
+import { NextSeo } from "next-seo";
 
 export const TVDetail = ({
   params,
@@ -21,10 +22,16 @@ export const TVDetail = ({
 
   if (!data || !creditsData || !videoData || isLoading)
     return <LoadingAnimation />;
+  console.log(data);
 
   return (
     <>
-      <Seo title={`${data.name}(${data.first_air_date.slice(0, 4)})`} />
+      <NextSeo
+        {...Seo({
+          title: `${data.name}(${data.first_air_date.slice(0, 4)})`,
+          description: data.overview,
+        })}
+      />
       <TviInfo detail={data} credits={creditsData} video={videoData.results} />
       <InfoCast {...creditsData} />
     </>
