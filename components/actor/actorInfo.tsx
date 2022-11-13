@@ -26,8 +26,8 @@ export const AcrtorInfo = ({
           layout="responsive"
           alt={data.name}
           src={`${BASE_URL}${data?.profile_path}`}
-          width={300}
-          height={450}
+          width={384}
+          height={576}
           placeholder="blur"
           blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
         />

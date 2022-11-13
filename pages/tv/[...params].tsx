@@ -22,7 +22,6 @@ export const TVDetail = ({
 
   if (!data || !creditsData || !videoData || isLoading)
     return <LoadingAnimation />;
-  console.log(data);
 
   return (
     <>

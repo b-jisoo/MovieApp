@@ -30,8 +30,8 @@ export const MovieiInfo = (props: movieInfo) => {
           layout="responsive"
           alt={props.details.title}
           src={`${BASE_URL}${props.details?.poster_path}`}
-          height={750}
-          width={500}
+          height={576}
+          width={384}
         />
       </div>
       <div className="md:ml-24">

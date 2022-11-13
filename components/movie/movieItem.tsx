@@ -21,8 +21,8 @@ export const MovieItem = (movie: Movie) => {
                 layout="responsive"
                 alt={movie.title}
                 src={`${BASE_URL}${movie.poster_path || movie.backdrop_path}`}
-                height={750}
-                width={500}
+                height={413}
+                width={275}
                 className="rounded-xl shadow-md"
                 placeholder="blur"
                 blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="

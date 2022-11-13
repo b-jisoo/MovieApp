@@ -30,8 +30,8 @@ export const TviInfo = (props: TviInfo) => {
           layout="responsive"
           alt={props.detail.name}
           src={`${BASE_URL}${props.detail?.poster_path}`}
-          height={750}
-          width={500}
+          height={577}
+          width={384}
         />
       </div>
       <div className="md:ml-24">
