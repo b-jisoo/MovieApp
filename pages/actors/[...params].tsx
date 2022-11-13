@@ -9,7 +9,7 @@ import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 
 import Seo from "../../components/Seo";
 import { DetailParams, actorCreditsData } from "../../type";
-import { DefaultSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 
 export const ActorDetail = ({
   params,
@@ -23,7 +23,7 @@ export const ActorDetail = ({
 
   return (
     <>
-      <DefaultSeo {...Seo({ title: data.name, description: data.name })} />
+      <NextSeo {...Seo({ title: data.name, description: data.name })} />
       <AcrtorInfo data={data} detailData={detailData} />
       <ActorCredit {...detailData} />
     </>

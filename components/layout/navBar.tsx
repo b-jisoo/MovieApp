@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Search from "./search";
+import Search from "../search/search";
 
 export const NavBar = () => {
   const router = useRouter();

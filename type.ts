@@ -26,10 +26,10 @@ export interface TvShow {
 }
 
 export interface GetMovies {
-  page: number;
+  page: number | null;
   results: Movie[];
-  total_pages: number;
-  total_results: number;
+  total_pages: number | null;
+  total_results: number | null;
 }
 
 export interface MovieDetails {

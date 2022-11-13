@@ -10,34 +10,34 @@ import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
 import { get_Credits, DetailParams, get_video } from "../../type";
-import { DefaultSeo } from "next-seo";
+import { DefaultSeo, NextSeo } from "next-seo";
 
 export const MovieDetail = ({
   params,
 }: InferGetServerSidePropsType<GetServerSideProps>) => {
   const [id, title] = (params || []) as DetailParams;
   const { data, isLoading } = useGetMoviesDeteli(id);
-  const creditsData: get_Credits = useGetMoviesCredits(id);
-  const videoData: get_video = useGetMoviesVideo(id);
+  const creditsData = useGetMoviesCredits(id);
+  const videoData = useGetMoviesVideo(id);
 
   if (!data || !creditsData || !videoData || isLoading)
     return <LoadingAnimation />;
 
   return (
     <>
-      <DefaultSeo
+      <NextSeo
         {...Seo({
-          title: `${data.title}(${data.release_date.slice(0, 4)})`,
-          description: data.overview,
+          title: `${data.data.title}(${data.data.release_date.slice(0, 4)})`,
+          description: data.data.overview,
         })}
       />
 
       <MovieiInfo
-        details={data}
-        credits={creditsData}
-        video={videoData.results}
+        details={data.data}
+        credits={creditsData.data}
+        video={videoData.data.results}
       />
-      <InfoCast {...creditsData} />
+      <InfoCast {...creditsData.data} />
     </>
   );
 };
