@@ -7,7 +7,7 @@ import useLocalStorage from "use-local-storage";
 import { Skeleton } from "../layout/skeleton";
 
 export const MovieItem = (movie: Movie) => {
-  const BASE_URL = "https://image.tmdb.org/t/p/w500";
+  const BASE_URL = "https://image.tmdb.org/t/p/w400";
   const MOVIE_URL = `/movies/${movie.id}/${movie.title}`;
   const [scrollY, setScrollY] = useLocalStorage("movie_list_scroll", 0);
 

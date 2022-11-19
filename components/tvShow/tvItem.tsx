@@ -4,7 +4,7 @@ import { TvShow } from "../../type";
 import useLocalStorage from "use-local-storage";
 
 export const TvItem = (tvshow: TvShow) => {
-  const BASE_URL = "https://image.tmdb.org/t/p/w500";
+  const BASE_URL = "https://image.tmdb.org/t/p/w400";
   const TVDETAIL_URL = `/tv/${tvshow.id}/${tvshow.name}`;
   const [scrollY, setScrollY] = useLocalStorage("tv_list_scroll", 0);
 

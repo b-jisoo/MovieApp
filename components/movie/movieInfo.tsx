@@ -13,7 +13,7 @@ interface movieInfo {
 }
 
 export const MovieiInfo = (props: movieInfo) => {
-  const BASE_URL = "https://image.tmdb.org/t/p/w500";
+  const BASE_URL = "https://image.tmdb.org/t/p/w400";
   const [modalSelected, setModalSelected] = useState(false);
 
   const ModalHandler = () => {
