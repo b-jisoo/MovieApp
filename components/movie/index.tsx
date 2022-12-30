@@ -1,4 +1,4 @@
-import { GetMovies, Movie } from "../../type";
+import { Movie } from "../../type";
 import MovieItem from "./movieItem";
 
 export const MovieList = ({ list }: { list: { results: Movie[] }[] }) => {

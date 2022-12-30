@@ -1,8 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
-import { QueryKey, restFetcher } from "../../queryClient";
-import { get_Credits, MovieDetails, get_TvDetails, video } from "../../type";
+import { get_Credits, get_TvDetails, video } from "../../type";
 import { Palyer } from "../detail/player";
 import TrailerBtn from "../layout/trailerBtn";
 

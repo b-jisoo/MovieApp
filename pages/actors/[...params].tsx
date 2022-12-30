@@ -9,7 +9,7 @@ import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 
 import Seo from "../../components/Seo";
 import { DetailParams, actorCreditsData } from "../../type";
-import { DefaultSeo, NextSeo } from "next-seo";
+import { NextSeo } from "next-seo";
 
 export const ActorDetail = ({
   params,

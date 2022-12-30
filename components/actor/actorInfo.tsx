@@ -1,13 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
-import { QueryKey, restFetcher } from "../../queryClient";
-import {
-  actorCreditsData,
-  atctorDetails,
-  get_Credits,
-  MovieDetails,
-} from "../../type";
+import { actorCreditsData, atctorDetails } from "../../type";
 
 export const AcrtorInfo = ({
   data,

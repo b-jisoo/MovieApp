@@ -1,6 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import { SyntheticEvent } from "react";
 import { atctor } from "../../type";
 import ActorItem from "./actorItem";
 

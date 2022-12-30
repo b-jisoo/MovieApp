@@ -1,11 +1,10 @@
 import Seo from "../components/Seo";
 import MovieList from "../components/movie";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import useIntersection from "../components/hook/useIntersection";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useLocalStorage from "use-local-storage";
 import { QueryKey } from "../queryClient";
-import { LoadingAnimation } from "../components/layout/loadingAnimation";
 import { Skeleton } from "../components/layout/skeleton";
 import { DefaultSeo } from "next-seo";
 

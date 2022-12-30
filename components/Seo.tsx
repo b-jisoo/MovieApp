@@ -1,5 +1,3 @@
-import Head from "next/head";
-
 type Seotype = {
   title: string | undefined;
   description?: string | undefined;

@@ -3,7 +3,6 @@ import useLocalStorage from "use-local-storage";
 import ActorList from "../components/actor";
 import useFetchMoviesData from "../components/hook/useFetchData";
 import useIntersection from "../components/hook/useIntersection";
-import { LoadingAnimation } from "../components/layout/loadingAnimation";
 import { Skeleton } from "../components/layout/skeleton";
 import Seo from "../components/Seo";
 import { QueryKey } from "../queryClient";

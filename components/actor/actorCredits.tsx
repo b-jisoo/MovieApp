@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { actorCreditsData, atctorDetails } from "../../type";
+import { actorCreditsData } from "../../type";
 
 export const ActorCredit = (data: actorCreditsData) => {
   return (

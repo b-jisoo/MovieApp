@@ -1,5 +1,3 @@
-import { video } from "../../type";
-
 interface trailerBtn {
   onClick?: () => void;
   disabled: boolean;

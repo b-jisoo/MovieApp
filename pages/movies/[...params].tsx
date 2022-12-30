@@ -9,8 +9,8 @@ import InfoCast from "../../components/detail/infoCast";
 import { LoadingAnimation } from "../../components/layout/loadingAnimation";
 import MovieiInfo from "../../components/movie/movieInfo";
 import Seo from "../../components/Seo";
-import { get_Credits, DetailParams, get_video } from "../../type";
-import { DefaultSeo, NextSeo } from "next-seo";
+import { DetailParams } from "../../type";
+import { NextSeo } from "next-seo";
 
 export const MovieDetail = ({
   params,

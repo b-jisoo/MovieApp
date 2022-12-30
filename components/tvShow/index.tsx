@@ -1,4 +1,4 @@
-import { Movie, TvShow } from "../../type";
+import { TvShow } from "../../type";
 import TvItem from "./tvItem";
 
 export const TvList = ({ list }: { list: { results: TvShow[] }[] }) => {

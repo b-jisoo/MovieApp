@@ -1,14 +1,13 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { QueryKey, restFetcher } from "../../queryClient";
-import { GetMovies } from "../../type";
+import { restFetcher } from "../../queryClient";
 
 export const useFetchMoviesData = (QueryKey: string, data: string) => {
   return useInfiniteQuery(
-    [`${QueryKey}`], // 매개변수로
+    [`${QueryKey}`],
     ({ pageParam = 1 }) =>
       restFetcher({
         method: "GET",
-        path: `/api/${data}`, // 매개변수로
+        path: `/api/${data}/`,
         params: {
           page: pageParam,
         },

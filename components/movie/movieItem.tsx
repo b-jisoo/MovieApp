@@ -1,10 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useRef } from "react";
-import { GetMovies, Movie } from "../../type";
+import { Movie } from "../../type";
 import useLocalStorage from "use-local-storage";
-import { Skeleton } from "../layout/skeleton";
 
 export const MovieItem = (movie: Movie) => {
   const BASE_URL = "https://image.tmdb.org/t/p/w400";
