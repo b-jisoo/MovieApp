@@ -12,12 +12,12 @@ export const NavBar = () => {
           <Link href="/">
             <a className={router.pathname === "/" ? "active" : ""}>Home</a>
           </Link>
-          <Link href="/tv">
+          <Link href="/tv/">
             <a className={router.pathname === "/tv" ? "active" : ""}>
               TV Shows
             </a>
           </Link>
-          <Link href="/actors">
+          <Link href="/actors/">
             <a className={router.pathname === "/actors" ? "active" : ""}>
               Actors
             </a>

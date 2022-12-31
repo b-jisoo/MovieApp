@@ -4,7 +4,11 @@ export const Document = () => {
   return (
     <Html>
       <Head>
-        <link rel="icon" href="pngwing.com.png" type="logo" />
+        <link
+          rel="icon"
+          href="https://w7.pngwing.com/pngs/805/202/png-transparent-cinema-art-film-cinema-logo-photography-wikimedia-commons-film.png"
+          type="logo"
+        />
       </Head>
       <body>
         <div id="_modal" />
