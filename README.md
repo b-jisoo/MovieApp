@@ -1,8 +1,14 @@
-# Movie App
+# **Movie App**
 
-**Next.js로 만들어 본 MovieApp 사이트입니다.**
+# 개요
 
-<br>
+<a href="http://courageous-lolly-f1062c.netlify.app/">Movie App</a>은,
+
+- 누구나 쉽게 영화, Tv 프로그램, 배우들의 정보를 찾아볼 수 있습니다.
+- 관심있는 영화, Tv 프로그램의 트레일러를 감상할 수 있습니다.
+- 영화 제목으로 작품을 검색할 수 있습니다.
+
+- Movie App은 netlify를 통해 배포되어 실제 이용 가능합니다.
 
 ## ⚒️ 기술 스택
 
