@@ -2,7 +2,7 @@
 
 # 개요
 
-<a href="http://courageous-lolly-f1062c.netlify.app/">Movie App</a>은,
+<a href="https://movie-app-beta-lyart-94.vercel.app/">Movie App</a>은,
 
 - 누구나 쉽게 영화, Tv 프로그램, 배우들의 정보를 찾아볼 수 있습니다.
 - 관심있는 영화, Tv 프로그램의 트레일러를 감상할 수 있습니다.
@@ -21,7 +21,7 @@
 
 ## 📜 배포
 
-- 링크: https://courageous-lolly-f1062c.netlify.app/
+- 링크: https://movie-app-beta-lyart-94.vercel.app/
 
 <br>
 
