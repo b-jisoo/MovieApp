@@ -8,7 +8,7 @@ import {
   video,
 } from "../../../type";
 
-const MOVIE_URL = "/api/movies";
+const MOVIE_URL = "/api/movies/";
 
 export const useGetMoviesCredits = (id: number | undefined) => {
   const { data } = useQuery([QueryKey.MOVIES_CREDIT, id], () =>
@@ -19,7 +19,7 @@ export const useGetMoviesCredits = (id: number | undefined) => {
 
 export const useGetMoviesDeteli = (id: number | undefined) => {
   return useQuery([QueryKey.MOVIES_DETAIL, id], () =>
-    axios.get<get_movieDetails>(MOVIE_URL + `/${id}/`)
+    axios.get<get_movieDetails>(MOVIE_URL + `${id}/`)
   );
 };
 export const useGetMoviesVideo = (id: number | undefined) => {
