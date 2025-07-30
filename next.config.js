@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const API_KEY = "f5aa9f927f791062392da80def9a5299";
+const API_KEY = "d7f4f1c2ffcd2c7ed13c2bf97a6e8059";
 
 const nextConfig = {
   trailingSlash: true,
@@ -72,7 +72,6 @@ const nextConfig = {
     ];
   },
   images: {
-    // unoptimized: true,
     domains: ["image.tmdb.org"],
   },
 };

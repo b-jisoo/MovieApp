@@ -47,6 +47,7 @@ export const restFetcher = async ({
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": BASE_URL,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkN2Y0ZjFjMmZmY2QyYzdlZDEzYzJiZjk3YTZlODA1OSIsIm5iZiI6MTc1Mzg4NjU5Ny4wNjQsInN1YiI6IjY4OGEyZjg1MTdlNGM5ZmQ5ZWExYTUxYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cWjagBH-qH3e-3S5tKtjieKE4APq3W2gXEy9mVBbjuQ`,
       },
     };
     if (params) {
